@@ -3,13 +3,17 @@
 #define max 100
 typedef struct{ int tab[max] ;
 int Sommet;
-
 }Pile;
 Pile P1,P2,P3;
 /************************************/
+void PileInitialisation(Pile *P)
+{ P->Sommet=-1; }
+int PileVide(Pile *P)
+{ return (P->Sommet<0);
+}
 void PilePush(Pile *P,int x)
 { if (P->Sommet>=max-1)
-printf(" Stack overflow : dépassement de la capacité");
+printf(" Stack overflow : dÃ©passement de la capacitÃ©");
 
 else {
 
@@ -29,11 +33,7 @@ return x;
 }
 
 }
-void PileInitialisation(Pile *P)
-{ P->Sommet=-1; }
-int PileVide(Pile *P)
-{ return (P->Sommet<0);
-}
+
 int PileSommet(Pile *P)
 { return(P->Sommet);
 }
@@ -51,12 +51,6 @@ for(i=1;i<=nb;i++)
 scanf("%d",&e);
 PilePush(&P1,e);
 }
-
-Université Sultan Moulay Slimane Filières : GI+ARI
-EST – Beni Mellal Module : Structures de données
-
-2023/2024
-
 while(!PileVide(&P1))
 { e=PilePop(&P1);
 if(e%2==0) PilePush(&P3,e);
@@ -66,7 +60,7 @@ while(!PileVide(&P3))
 { e=PilePop(&P3);
 PilePush(&P2,e);
 }
-//Affichage du contenu de P2 après la traitement
+//Affichage du contenu de P2 aprÃ¨s la traitement
 for(i=0;i<=P2.Sommet;i++)
 { printf(" %d \n",P2.tab[i]);
 }
